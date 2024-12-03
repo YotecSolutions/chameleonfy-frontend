@@ -3,20 +3,19 @@
  * @constant {string[]}
  */
 const genres = [
-    "lorem", "ipsum", "dolor", "sit", "amet", "consectetur", "adipiscing", "elit", "sed", "do",
-    "eiusmod", "tempor", "incididunt", "ut", "labore", "et", "dolore", "magna", "aliqua", "ut",
-    "enim", "ad", "minim", "veniam", "quis", "nostrud", "exercitation", "ullamco", "laboris",
-    "nisi", "ut", "aliquip", "ex", "ea", "commodo", "consequat", "duis", "aute", "irure",
-    "dolor", "in", "reprehenderit", "in", "voluptate", "velit", "esse", "cillum", "dolore",
-    "eu", "fugiat", "nulla", "pariatur", "excepteur", "sint", "occaecat", "cupidatat", "non",
-    "proident", "sunt", "in", "culpa", "qui", "officia", "deserunt", "mollit", "anim", "id",
-    "est", "laborum", "praesentium", "autem", "asperiores", "minima", "accusamus", "vel",
-    "nemo", "quibusdam", "consequuntur", "sapiente", "natus", "distinctio", "ratione",
-    "voluptates", "molestias", "deleniti", "omnis", "aliquid", "quisquam", "maxime", "quod",
-    "fugiat", "quasi", "necessitatibus", "doloremque", "adipisci", "laboriosam", "culpa",
-    "impedit", "tempore", "quas", "eius", "facilis", "rerum", "suscipit", "delectus", "velit",
-    "itaque", "similique", "aspernatur", "ullam", "ducimus", "saepe", "dignissimos", "error",
-    "odio", "veritatis", "exercitationem", "neque", "maiores", "aut", "temporibus"
+    "acoustic", "afrobeat", "alt-rock", "alternative", "ambient", "anime", "black-metal", "bluegrass", "blues",
+    "bossa-nova", "brazil", "breakbeat", "british", "cantopop", "chicago-house", "children", "chill", "classical",
+    "club", "comedy", "country", "dance", "dancehall", "death-metal", "deep-house", "detroit-techno", "disco",
+    "disney", "drum-and-bass", "dub", "dubstep", "edm", "electro", "electronic", "emo", "folk", "forro", "french",
+    "funk", "garage", "german", "gospel", "goth", "grindcore", "groove", "grunge", "guitar", "happy", "hard-rock",
+    "hardcore", "hardstyle", "heavy-metal", "hip-hop", "holidays", "honky-tonk", "house", "idm", "indian", "indie",
+    "indie-pop", "industrial", "iranian", "j-dance", "j-idol", "j-pop", "j-rock", "jazz", "k-pop", "kids", "latin",
+    "latino", "malay", "mandopop", "metal", "metal-misc", "metalcore", "minimal-techno", "movies", "mpb", "new-age",
+    "new-release", "opera", "pagode", "party", "philippines-opm", "piano", "pop", "pop-film", "post-dubstep",
+    "power-pop", "progressive-house", "psych-rock", "punk", "punk-rock", "r-n-b", "rainy-day", "reggae", "reggaeton",
+    "road-trip", "rock", "rock-n-roll", "rockabilly", "romance", "sad", "salsa", "samba", "sertanejo", "show-tunes",
+    "singer-songwriter", "ska", "sleep", "songwriter", "soul", "soundtracks", "spanish", "study", "summer", "swedish",
+    "synth-pop", "tango", "techno", "trance", "trip-hop", "turkish", "work-out", "world-music"
 ];
 
 /**

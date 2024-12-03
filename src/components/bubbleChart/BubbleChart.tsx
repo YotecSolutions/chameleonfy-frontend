@@ -212,7 +212,7 @@ const BubbleChart: React.FC = () => {
   const createGenreColorMap = (genres: string[]): { [genre: string]: string } => {
     const map: { [genre: string]: string } = {};
     genres.forEach((genre) => {
-      map[genre] = genresWithColors.find((g) => g.name === genre)?.color || '#4caf50';
+      map[genre] = genresWithColors.find((g) => g.name === genre)?.color || 'rgb(76, 175, 80)';
     });
     return map;
   };
@@ -225,7 +225,7 @@ const BubbleChart: React.FC = () => {
    * @returns {object} The dataset for the track.
    */
   const createDataset = (track: Track, index: number, genreColorMap: { [genre: string]: string }) => {
-    const genreColor = genreColorMap[track.genre] || '#4caf50';
+    const genreColor = genreColorMap[track.genre] || 'rgb(76, 175, 80)';
     return {
       label: `${track.trackName} by ${track.artistName || 'Unknown Artist'}`,
       data: [

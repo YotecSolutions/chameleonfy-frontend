@@ -49,6 +49,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@eslint/js": "^9.16.0",
     "@types/chart.js": "^2.9.41",
     "@types/history": "^4.7.11",
