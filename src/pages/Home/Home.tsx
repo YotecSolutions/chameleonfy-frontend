@@ -13,10 +13,10 @@ import { Recommendation } from '../../types/recommendation';
  * @returns {JSX.Element} The rendered Home page.
  */
 const Home: React.FC = () => {
-    const [moodText, setMoodText] = useState<string>(''); // User-inputted mood text
-    const [recommendations, setRecommendations] = useState<Recommendation[]>([]); // Music recommendations
-    const [selectedGenre, setSelectedGenre] = useState<{ name: string } | null>(null); // Selected genre
-    const [selectedDecade, setSelectedDecade] = useState<string>('2020-2029'); // Selected decade
+    const [moodText, setMoodText] = useState<string>('');
+    const [recommendations] = useState<Recommendation[]>([]);
+    const [selectedGenre, setSelectedGenre] = useState<{ name: string } | null>(null);
+    const [selectedDecade, setSelectedDecade] = useState<string>('2020-2029');
 
     /**
      * Handles fetching music recommendations.
