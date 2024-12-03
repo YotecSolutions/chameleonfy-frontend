@@ -6,8 +6,8 @@
  * @property {string} transition - Smooth color and filter animations
  */
 .button {
-    background-color: #4caf50;
-    color: white;
+    background-color: rgb(76, 175, 80);
+    color: rgb(255, 255, 255);
     transition: background-color 0.3s, filter 0.3s;
 }
 
@@ -26,8 +26,8 @@
  * @property {number} font-weight - Enhanced text emphasis
  */
 .active {
-    background-color: #4caf50;
+    background-color: rgb(76, 175, 80);
     filter: brightness(0.8);
-    color: white;
+    color: rgb(255, 255, 255);
     font-weight: bold;
 }

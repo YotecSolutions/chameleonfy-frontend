@@ -36,7 +36,7 @@
     padding: 0.75rem;
     font-size: 1rem;
     border-radius: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid rgb(204, 204, 204);
     width: 100%;
     max-width: 350px;
     transition: border-color 0.3s ease;
@@ -49,7 +49,7 @@
  * @description Highlights the input border when focused.
  */
 .input:focus {
-    border-color: #4caf50;
+    border-color: rgb(76, 175, 80);
     outline: none;
 }
 
@@ -62,8 +62,8 @@
     padding: 0.75rem 1.5rem;
     font-size: 1.1rem;
     font-weight: bold;
-    color: #ffffff;
-    background-color: #4caf50;
+    color: rgb(255, 255, 255);
+    background-color: rgb(76, 175, 80);
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -74,7 +74,7 @@
  * @class submit-button:hover
  */
 .submit-button:hover {
-    background-color: #388e3c;
+    background-color: rgb(56, 142, 60);
     transform: scale(1.05);
 }
 
@@ -99,11 +99,11 @@
  */
 .recommendation-item {
     padding: 1rem;
-    background-color: #ffffff;
+    background-color: rgb(255, 255, 255);
     border-radius: 8px;
     font-size: 1rem;
     font-weight: 500;
-    color: #333;
+    color: rgb(51, 51, 51);
     width: 100%;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease;
@@ -125,8 +125,8 @@
     padding: 0.75rem 1.5rem;
     font-size: 1.2rem;
     font-weight: bold;
-    color: #fff;
-    background-color: #4caf50;
+    color: rgb(255, 255, 255);
+    background-color: rgb(76, 175, 80);
     border: none;
     border-radius: 12px;
     cursor: pointer;
@@ -142,7 +142,7 @@
  * @class recommend-button:hover
  */
 .recommend-button:hover {
-    background-color: #388e3c;
+    background-color: rgb(56, 142, 60);
 }
 
 /* Recommendation button active state
@@ -150,14 +150,14 @@
  */
 .recommend-button:active {
     transform: scale(0.98);
-    background-color: #2e7d32;
+    background-color: rgb(46, 125, 50);
 }
 
 /* Recommendation button disabled state
  * @class recommend-button:disabled
  */
 .recommend-button:disabled {
-    background-color: #cccccc;
+    background-color: rgb(204, 204, 204);
     cursor: not-allowed;
 }
 
