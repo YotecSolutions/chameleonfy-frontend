@@ -3,6 +3,9 @@ import { ThemeContextType } from '../types/theme';
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
+// Define a type alias for theme modes
+type ThemeMode = 'light' | 'dark';
+
 /**
  * ThemeProvider component for managing theme context.
  * Provides `theme` state and a `toggleTheme` function to its children.
@@ -12,24 +15,27 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
  * @returns {JSX.Element} The ThemeProvider with context.
  */
 export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-    const [theme, setTheme] = useState<'light' | 'dark'>('light');
+    const [theme, setTheme] = useState<ThemeMode>(() => {
+        const savedTheme = localStorage.getItem('theme') as ThemeMode | null;
+        if (savedTheme) return savedTheme;
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    });
 
     useEffect(() => {
-        const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
-        const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        setTheme(savedTheme || (prefersDarkMode ? 'dark' : 'light'));
-        document.body.className = savedTheme || (prefersDarkMode ? 'dark' : 'light');
-    }, []);
+        document.body.classList.add(theme);
+        return () => {
+            document.body.classList.remove(theme);
+        };
+    }, [theme]);
 
     /**
      * Toggles the theme between 'light' and 'dark'.
      * Updates the theme in localStorage and applies it to the document body.
      */
     const toggleTheme = () => {
-        const newTheme = theme === 'light' ? 'dark' : 'light';
+        const newTheme: ThemeMode = theme === 'light' ? 'dark' : 'light';
         setTheme(newTheme);
         localStorage.setItem('theme', newTheme);
-        document.body.className = newTheme;
     };
 
     return (

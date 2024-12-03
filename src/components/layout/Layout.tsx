@@ -2,19 +2,20 @@ import React from 'react';
 import Navbar from '../navbar/Navbar';
 import Footer from '../footer/Footer';
 import styles from './Layout.module.css';
+import { Outlet } from 'react-router-dom';
 
 /**
- * Layout component for wrapping application content with a Navbar and Footer.
+ * Layout component providing consistent page structure with navigation and footer
  * @component
- * @param {Object} props - Props for the Layout component.
- * @param {React.ReactNode} props.children - The content to be displayed between the Navbar and Footer.
- * @returns {JSX.Element} The rendered Layout component.
+ * @returns {JSX.Element} Layout wrapper with Outlet for route content
  */
-const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+const Layout: React.FC = () => {
   return (
     <div className={styles.layout}>
       <Navbar />
-      <main className={styles.main}>{children}</main>
+      <main className={styles.main}>
+        <Outlet />
+      </main>
       <Footer />
     </div>
   );

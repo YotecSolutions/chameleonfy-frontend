@@ -268,13 +268,25 @@ const BubbleChart: React.FC = () => {
     const generateGenreButtons = () => {
       const buttons: GenreButton[] = [];
 
-      genresWithColors.forEach((genre, index) => {
-        const position = generateFixedRandomPosition(genre.name);
-        buttons.push({
-          name: genre.name,
-          color: genre.color,
-          position,
-        });
+      const takenPositions: Set<string> = new Set();
+      genresWithColors.forEach((genre) => {
+        let position;
+        let attempts = 0;
+
+        // Generate a consistent position based on genre name hash
+        do {
+          position = generateFixedRandomPosition(genre.name);
+          attempts++;
+        } while (takenPositions.has(`${position.x},${position.y}`) && attempts < 100);
+
+        if (attempts < 100) {
+          takenPositions.add(`${position.x},${position.y}`);
+          buttons.push({
+            name: genre.name,
+            color: genre.color,
+            position,
+          });
+        }
       });
       setGenreButtons(buttons);
     };
@@ -357,4 +369,3 @@ const BubbleChart: React.FC = () => {
 };
 
 export default BubbleChart;
-
