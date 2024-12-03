@@ -50,8 +50,11 @@
   },
   "devDependencies": {
     "@types/chart.js": "^2.9.41",
+    "@types/history": "^4.7.11",
+    "@types/node": "^22.10.1",
     "@types/react-chartjs-2": "^2.0.2",
     "@types/react-router-dom": "^5.3.3",
+    "@types/testing-library__jest-dom": "^5.14.9",
     "eslint-config-react-app": "^7.0.1"
   },
   "overrides": {
