@@ -1,0 +1,14 @@
+/* Main container
+ * @class main
+ * @description Styles the main container for central alignment and layout.
+ * @property {string} display - Flexbox layout for arranging child elements.
+ * @property {string} flex-direction - Ensures children are arranged in a column.
+ * @property {string} align-items - Centers children horizontally.
+ * @property {string} padding - Adds internal spacing to the container.
+ */
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}

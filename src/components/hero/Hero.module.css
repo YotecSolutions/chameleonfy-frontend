@@ -1,0 +1,51 @@
+/* Hero section layout
+ * @class hero
+ * @property {string} display - Centered flex column layout
+ * @property {number} height - 30% of viewport height
+ */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 30vh;
+}
+
+/* Typewriter heading animation container
+ * @class typewriter h1
+ * @property {string} animation - Combined typing and cursor blink
+ * @property {string} color - Theme-aware text color
+ */
+.typewriter h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-text-color);
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 0.15em solid;
+    animation: typing 3s steps(30, end), blink 0.75s step-end infinite;
+}
+
+/* Typing animation keyframes
+ * @keyframes typing
+ * @property {number} width - Text reveal from 0 to 100%
+ */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+/* Cursor blink animation keyframes
+ * @keyframes blink
+ * @property {string} border-color - Alternating cursor visibility
+ */
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}

@@ -1,0 +1,36 @@
+/* Footer component styles
+ * @module Footer
+ */
+
+/* Main footer container
+ * @class footer
+ * @property {string} display - Flex layout for centering
+ * @property {string} background-color - Uses theme variable
+ * @property {string} color - Theme-based text color
+ */
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    background-color: var(--secondary-bg-color);
+    color: var(--primary-text-color);
+    font-size: 0.9em;
+    width: 100%;
+}
+
+/* Footer paragraph reset
+ * @class footer p
+ * @property {number} margin - Removes default margins
+ */
+.footer p {
+    margin: 0;
+}
+
+/* Brand text styling
+ * @class footer-brand
+ * @property {number} font-weight - Bold text for emphasis
+ */
+.footer-brand {
+    font-weight: bold;
+}

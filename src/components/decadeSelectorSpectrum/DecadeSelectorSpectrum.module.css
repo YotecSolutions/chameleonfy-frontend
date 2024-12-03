@@ -1,0 +1,33 @@
+/* DecadeSelectorSpectrum.module.css */
+
+/* Decade selector button base styles
+ * @class button
+ * @property {color} background-color - Primary green theme color
+ * @property {string} transition - Smooth color and filter animations
+ */
+.button {
+    background-color: #4caf50;
+    color: white;
+    transition: background-color 0.3s, filter 0.3s;
+}
+
+/* Hover state for decade buttons
+ * @class button:hover
+ * @property {number} filter - Slight dimming effect on hover
+ */
+.button:hover {
+    filter: brightness(0.9);
+}
+
+/* Active state styles for selected decade
+ * @class active
+ * @property {color} background-color - Maintains primary green theme
+ * @property {number} filter - Darker shade for active state
+ * @property {number} font-weight - Enhanced text emphasis
+ */
+.active {
+    background-color: #4caf50;
+    filter: brightness(0.8);
+    color: white;
+    font-weight: bold;
+}

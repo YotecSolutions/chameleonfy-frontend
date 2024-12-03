@@ -1,0 +1,233 @@
+/* BubbleChart.module.css */
+
+/* Main container for the bubble chart visualization
+ * @class main-bubble-chart
+ * @extends flex-container
+ * @property {string} margin-top - Top spacing from parent element
+ * @property {string} height - Full viewport height
+ * @property {string} border-radius - Rounded corners for container
+*/
+.main-bubble-chart {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Container for the interactive chart area
+ * @class chart-container
+ * @property {string} position - Relative positioning for child elements
+ * @property {string} cursor - Grab cursor for dragging interaction
+ */
+.chart-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+    cursor: grab;
+}
+
+/* Circular wrapper for the chart content
+ * @class chart-wrapper
+ * @property {number} width - Fixed width of 800px
+ * @property {string} border-radius - Circular shape
+ * @property {string} background - Radial gradient background
+ */
+.chart-wrapper {
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(232, 247, 252, 0.102), rgba(240, 240, 255, 0.063));
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border: 1px solid blue;
+    z-index: 1;
+}
+
+
+/* Mood label styles for chart quadrants
+ * @class mood-label
+ * @property {string} color - Green text color
+ * @property {string} text-shadow - Shadow effect for visibility
+ */
+.mood-label {
+    position: absolute;
+    color: #4caf50;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Position modifiers for mood labels
+ * @class label-{position}
+ * @property {string} position - Absolute positioning values
+ * @property {string} transform - Center alignment adjustments
+ */
+.label-energetic {
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.label-calm {
+    bottom: 5%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+}
+
+.label-melancholic {
+    top: 50%;
+    left: 5%;
+    transform: translate(-50%, -50%);
+}
+
+.label-optimistic {
+    top: 50%;
+    right: 5%;
+    transform: translate(50%, -50%);
+}
+
+
+/* Genre button styling
+ * @class genre-button
+ * @property {number} width - 80px circular button
+ * @property {string} transition - Smooth hover animation
+ * @property {string} z-index - Layer management for overlapping
+ */
+.genre-button {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    padding: 0.6rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    word-wrap: break-word;
+    z-index: 0;
+}
+
+.genre-button:hover {
+    transform: scale(1.2);
+    z-index: 2;
+}
+
+.active-genre {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    transform: scale(1.2);
+    border: 2px solid #fff;
+}
+
+.decade-button {
+    width: 150px;
+    height: 150px;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: var(--button-bg-color, #4caf50);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.decade-button:hover {
+    transform: scale(1.1);
+    background-color: #388e3c;
+}
+
+.active-decade {
+    background-color: #1b5e20;
+    color: #fff;
+    font-weight: bold;
+    transform: scale(1.1);
+}
+
+/* Music player component
+ * @class player
+ * @property {string} background - Gradient background
+ * @property {number} max-width - 600px container limit
+ * @property {string} display - Flex layout for content
+ */
+.player {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+    padding: 20px;
+    background: linear-gradient(135deg, #ffffff, #f5f5f5);
+    border-radius: 12px;
+    color: var(--primary-text-color);
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+/* Album artwork styling
+ * @class album-cover
+ * @property {number} width - 120px square image
+ * @property {string} transition - Hover animation effect
+ */
+.album-cover {
+    width: 120px;
+    height: 120px;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.album-cover:hover {
+    transform: scale(1.05);
+}
+
+/* Track information text styles
+ * @class track-info
+ * @nested {h4, p, a} - Typography hierarchy for track details
+ */
+.track-info h4 {
+    margin: 0;
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #333;
+}
+
+.track-info p {
+    margin: 3px 0;
+    font-size: 1em;
+    color: #666;
+}
+
+.track-info a {
+    color: #1db954;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.track-info a:hover {
+    color: #14833b;
+    text-decoration: underline;
+}

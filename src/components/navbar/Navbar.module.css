@@ -1,0 +1,172 @@
+/* Primary navigation bar
+ * @class navbar
+ * @property {string} background-color - Background color using theme variable
+ * @property {string} color - Text color using theme variable
+ * @property {string} position - Fixed position for consistent placement
+ * @property {string} display - Flex layout for navigation items
+ * @property {number} z-index - Layer positioning above other elements
+ */
+.navbar {
+    background-color: var(--navbar-bg-color);
+    color: var(--primary-text-color);
+    position: fixed;
+    height: 5em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    inset: 0;
+    text-align: right;
+    padding: 0 1em;
+    z-index: 1000;
+}
+
+/* Left side navigation area
+ * @class navbar-left-side
+ * @property {string} display - Flex container for logo/brand
+ * @property {string} font-size - Larger font size for emphasis
+ * @property {number} font-weight - Bold text for branding
+ */
+.navbar-left-side {
+    display: flex;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-left: 1em;
+}
+
+/* Hidden mobile menu toggle checkbox
+ * @class navbar-toggle
+ * @property {string} display - Hidden by default
+ */
+.navbar-toggle {
+    display: none;
+}
+
+/* Icon for toggling mobile menu
+ * @class navbar-icon
+ * @property {string} display - Hidden by default, visible on mobile
+ * @property {string} font-size - Larger icon size for visibility
+ * @property {string} cursor - Pointer cursor for interactivity
+ */
+.navbar-icon {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* Navigation links container
+ * @class navbar-links
+ * @property {string} display - Flex layout for spacing and alignment
+ * @property {string} list-style - Removes default bullet points
+ */
+.navbar-links {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    gap: 8px;
+    list-style: none;
+}
+
+/* Individual navigation links
+ * @class navbar-links a
+ * @property {string} font-family - Uses primary font variable
+ * @property {string} font-weight - Regular text weight
+ * @property {string} text-transform - Uppercase for consistency
+ * @property {string} text-decoration - Removes underline styling
+ * @property {string} font-size - Larger font for emphasis
+ */
+.navbar-links a {
+    font-family: var(--font-primary);
+    font-weight: 400;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-right: 2em;
+    font-size: 1.5em;
+    letter-spacing: 0.2em;
+    color: inherit;
+}
+
+/* Hover underline effect
+ * @class navbar-links li a::after
+ * @property {string} transition - Smooth animation for underline width
+ */
+.navbar-links li a::after {
+    content: "";
+    width: 0;
+    height: 2px;
+    background: var(--primary-text-color);
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.5s;
+    display: block;
+}
+
+/* Trigger hover underline expansion
+ * @class navbar-links li a:hover::after
+ * @property {number} width - Expands underline to full width
+ */
+.navbar-links li a:hover::after {
+    width: 100%;
+}
+
+/* Mobile-specific adjustments
+ * @media (max-width: 980px)
+ */
+@media (max-width: 980px) {
+
+    /* Navbar layout adjustments for smaller screens
+     * @class navbar
+     */
+    .navbar {
+        max-width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    /* Show menu icon on smaller screens
+     * @class navbar-icon
+     */
+    .navbar-icon {
+        display: block;
+    }
+
+    /* Show navigation links on toggle
+     * @class navbar-toggle:checked~.navbar-links-container
+     */
+    .navbar-toggle:checked~.navbar-links-container {
+        display: block;
+        margin-top: 5em;
+    }
+
+    /* Navigation links container for mobile
+     * @class navbar-links-container
+     * @property {string} position - Fixed to right side of screen
+     * @property {string} transition - Smooth slide-in effect
+     */
+    .navbar-links-container {
+        background-color: var(--navbar-bg-color);
+        position: fixed;
+        width: 40%;
+        height: 100%;
+        top: 0;
+        right: 0;
+        flex-direction: column;
+        transition: transform 0.3s ease-in-out;
+        display: none;
+    }
+
+    /* Navigation links for mobile
+     * @class navbar-links
+     */
+    .navbar-links {
+        padding-top: 1em;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+}

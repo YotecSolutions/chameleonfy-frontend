@@ -1,0 +1,26 @@
+/* Logo text container
+ * @class logo-text
+ * @property {number} width - Fixed 9em width for consistent sizing
+ */
+.logo-text {
+    width: 9em;
+    height: auto;
+}
+
+/* Hover interaction
+ * @class logo-text:hover
+ * @property {string} transform - Scale animation on hover
+ */
+.logo-text:hover {
+    transform: scale(1.02);
+    transition: transform 0.2s ease;
+}
+
+/* Mobile responsive adjustments
+ * @media (max-width: 768px)
+ */
+@media (max-width: 768px) {
+    .logo-text {
+        width: 7em;
+    }
+}

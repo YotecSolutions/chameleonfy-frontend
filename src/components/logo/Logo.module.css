@@ -1,0 +1,21 @@
+/* Logo image styling
+ * @class logo-image
+ * @property {number} width - Fixed 20em width for logo
+ * @property {string} margin - Auto margins for horizontal centering
+ */
+.logo-image {
+    width: 20em;
+    margin: auto;
+    height: auto;
+    display: block;
+}
+
+/* Logo container
+ * @class logo-container 
+ * @property {string} display - Flex layout for alignment
+ */
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

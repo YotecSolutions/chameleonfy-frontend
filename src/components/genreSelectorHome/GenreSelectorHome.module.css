@@ -1,0 +1,80 @@
+/* GenreSelectorHome.module.css */
+
+/* Primary container layout
+ * @class container
+ * @property {string} display - Flex column layout
+ * @property {string} align-items - Center alignment
+ */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+/* Label styling for genre selector
+ * @class label
+ * @property {number} font-size - Larger text for visibility
+ * @property {string} color - Brand green color
+ */
+.label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #4caf50;
+}
+
+/* Select element customization
+ * @class select
+ * @property {number} max-width - Constrained width for readability
+ * @property {string} background-color - Theme-aware background
+ * @property {string} transition - Smooth interaction animations
+ */
+.select {
+    width: 100%;
+    max-width: 320px;
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    color: var(--input-text-color);
+    background-color: var(--input-bg-color);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    appearance: none;
+    position: relative;
+    padding-right: 1.5rem;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Focus and hover states
+ * @class select:focus, select:hover
+ * @property {string} border-color - Brand color emphasis
+ * @property {string} box-shadow - Subtle elevation effect
+ */
+.select:focus {
+    border-color: #4caf50;
+    outline: none;
+    box-shadow: 0 2px 8px rgba(76, 175, 80, 0.2);
+}
+
+.select:hover {
+    background-color: var(--input-bg-color-hover);
+}
+
+/* Custom dropdown arrow
+ * @class select::after
+ * @property {string} content - Unicode dropdown indicator
+ * @property {string} position - Absolute positioning
+ */
+.select::after {
+    content: '▼';
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    pointer-events: none;
+}

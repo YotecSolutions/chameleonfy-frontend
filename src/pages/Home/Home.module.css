@@ -1,0 +1,184 @@
+/* Form container
+ * @class form
+ * @description Styles the main form layout.
+ * @property {string} display - Flex layout for column direction.
+ * @property {string} gap - Space between child elements.
+ * @property {string} margin - Centers the form on the page.
+ * @property {string} background - Background color from theme variable.
+ * @property {string} border-radius - Rounded corners for the form.
+ * @property {string} box-shadow - Subtle shadow for depth effect.
+ * @property {string} width - Fixed width with responsive adjustment.
+ * @property {string} height - Fixed height for uniformity.
+ */
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 2rem auto 2rem auto;
+    background: var(--secondary-bg-color);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 20rem;
+    height: 25rem;
+}
+
+/* Input fields
+ * @class input
+ * @description Styles the text input fields in the form.
+ * @property {string} padding - Internal spacing for the input.
+ * @property {string} font-size - Adjusts text size inside the input.
+ * @property {string} border-radius - Rounded corners for input.
+ * @property {string} transition - Smooth animation for focus effects.
+ */
+.input {
+    padding: 0.75rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 100%;
+    max-width: 350px;
+    transition: border-color 0.3s ease;
+    background-color: var(--input-bg-color);
+    color: var(--input-text-color);
+}
+
+/* Focus state for input fields
+ * @class input:focus
+ * @description Highlights the input border when focused.
+ */
+.input:focus {
+    border-color: #4caf50;
+    outline: none;
+}
+
+/* Submit button
+ * @class submit-button
+ * @description Styles the form submission button.
+ * @property {string} transition - Smooth animation on hover and click.
+ */
+.submit-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #4caf50;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Submit button hover state
+ * @class submit-button:hover
+ */
+.submit-button:hover {
+    background-color: #388e3c;
+    transform: scale(1.05);
+}
+
+/* Recommendations container
+ * @class recommendations
+ * @description Styles the container for recommendation items.
+ */
+.recommendations {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Individual recommendation items
+ * @class recommendation-item
+ * @description Styles for each recommendation card.
+ * @property {string} transition - Smooth hover effect.
+ */
+.recommendation-item {
+    padding: 1rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+    width: 100%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+/* Recommendation item hover state
+ * @class recommendation-item:hover
+ */
+.recommendation-item:hover {
+    transform: translateY(-5px);
+}
+
+/* Recommendation button
+ * @class recommend-button
+ * @description Styles the action button for recommendations.
+ * @property {string} box-shadow - Adds depth to the button.
+ */
+.recommend-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #4caf50;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 1rem;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+/* Recommendation button hover state
+ * @class recommend-button:hover
+ */
+.recommend-button:hover {
+    background-color: #388e3c;
+}
+
+/* Recommendation button active state
+ * @class recommend-button:active
+ */
+.recommend-button:active {
+    transform: scale(0.98);
+    background-color: #2e7d32;
+}
+
+/* Recommendation button disabled state
+ * @class recommend-button:disabled
+ */
+.recommend-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* Selectors container
+ * @class selectors
+ * @description Styles a section for additional UI controls.
+ */
+.selectors {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Responsive adjustments for smaller screens
+ * @media (max-width: 768px)
+ */
+@media (max-width: 768px) {
+    .form {
+        width: 90%;
+    }
+
+    .input {
+        width: 100%;
+    }
+}
