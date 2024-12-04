@@ -273,6 +273,7 @@ const BubbleChart: React.FC = () => {
     /* Generate genre buttons 
     * This function generates the genre buttons in random positions around the circular chart.
     */
+
     const generateGenreButtons = () => {
       const buttons: GenreButton[] = [];
       const takenPositions: Position[] = [];
