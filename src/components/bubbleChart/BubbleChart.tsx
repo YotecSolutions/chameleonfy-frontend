@@ -267,47 +267,60 @@ const BubbleChart: React.FC = () => {
   useEffect(() => {
     const generateGenreButtons = () => {
       const buttons: GenreButton[] = [];
+      const takenPositions: Position[] = [];
+      const blueCircleRadius = 400; // Raio do círculo azul em pixels
+      const blueCircleCenter = { x: 50, y: 50 }; // Coordenadas do centro do círculo azul em porcentagem
+      const buttonRadius = 40; // Raio aproximado dos botões em pixels
+      const minDistanceFromCircle = blueCircleRadius + buttonRadius; // Distância mínima do botão ao círculo azul
 
-      const takenPositions: Set<string> = new Set();
+      // Verifica se uma nova posição se sobrepõe a posições já existentes
+      const doesOverlap = (newPosition: Position, takenPositions: Position[]): boolean => {
+        for (const pos of takenPositions) {
+          const dx = (newPosition.x - pos.x) * 8; // Convertendo de porcentagem para pixels considerando o círculo de 800px
+          const dy = (newPosition.y - pos.y) * 8;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          if (distance < buttonRadius * 2) {
+            return true; // Overlap detectado
+          }
+        }
+        return false;
+      };
+
+      // Gera posições para cada gênero
       genresWithColors.forEach((genre) => {
-        let position;
+        let position: Position;
         let attempts = 0;
+        const maxAttempts = 100;
 
-        // Generate a consistent position based on genre name hash
+        // Gera posições aleatórias até encontrar uma válida (fora do círculo e sem overlap)
         do {
-          position = generateFixedRandomPosition(genre.name);
-          attempts++;
-        } while (takenPositions.has(`${position.x},${position.y}`) && attempts < 100);
+          const angle = Math.random() * 2 * Math.PI; // Ângulo aleatório
+          const distance = minDistanceFromCircle + Math.random() * 200; // Gera uma distância fora do círculo azul
 
-        if (attempts < 100) {
-          takenPositions.add(`${position.x},${position.y}`);
+          // Calcula as coordenadas em porcentagem
+          const x = blueCircleCenter.x + (distance * Math.cos(angle)) / 8;
+          const y = blueCircleCenter.y + (distance * Math.sin(angle)) / 8;
+          position = { x, y };
+          attempts++;
+        } while (doesOverlap(position, takenPositions) && attempts < maxAttempts);
+
+        if (attempts < maxAttempts) {
+          takenPositions.push(position);
           buttons.push({
             name: genre.name,
             color: genre.color,
             position,
           });
+        } else {
+          console.warn(`Não foi possível encontrar uma posição válida para o gênero: ${genre.name}`);
         }
       });
+
       setGenreButtons(buttons);
     };
 
     generateGenreButtons();
   }, []);
-
-  /**
-   * Generates a fixed random position for genre buttons based on the genre name.
-   * @param {string} name - The name of the genre.
-   * @returns {Position} The position for the genre button.
-   */
-  const generateFixedRandomPosition = (name: string): Position => {
-    let hash = 0;
-    for (let i = 0; i < name.length; i++) {
-      hash = name.charCodeAt(i) + ((hash << 5) - hash);
-    }
-    const x = (hash % 80) + 10; // Ensure x is between 10% and 90%
-    const y = ((hash >> 8) % 80) + 10; // Ensure y is between 10% and 90%
-    return { x, y };
-  };
 
   return (
     <main className={styles['main-bubble-chart']}>
