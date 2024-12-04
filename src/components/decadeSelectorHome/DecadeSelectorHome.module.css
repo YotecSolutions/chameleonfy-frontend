@@ -1,3 +1,11 @@
+/* Container styles for aligning and centering elements
+ * @class container
+ * @property {display} flex - Uses flexbox for layout
+ * @property {align-items} center - Aligns items vertically centered
+ * @property {justify-content} center - Centers items horizontally
+ * @property {gap} 1rem - Spacing between child elements
+ * @property {margin-top} 1.5rem - Adds space at the top
+ */
 .container {
     display: flex;
     align-items: center;
@@ -6,6 +14,24 @@
     margin-top: 1.5rem;
 }
 
+/* Button base styles for decade and genre buttons
+ * @class button
+ * @property {padding} 0.5rem 1rem - Space around the button content
+ * @property {font-size} 1.2rem - Larger text for better readability
+ * @property {font-weight} bold - Bold text for emphasis
+ * @property {color} rgb(255, 255, 255) - White text color
+ * @property {background-color} rgb(76, 175, 80) - Green theme for buttons
+ * @property {border} none - No border for clean look
+ * @property {border-radius} 50% - Circular button shape
+ * @property {cursor} pointer - Pointer cursor on hover to indicate interactivity
+ * @property {transition} background-color, transform - Smooth animations on interaction
+ * @property {box-shadow} 0 2px 6px rgba(0, 0, 0, 0.15) - Subtle shadow for elevation
+ * @property {width} 3rem - Button width to maintain circular shape
+ * @property {height} 3rem - Button height to maintain circular shape
+ * @property {display} flex - Uses flexbox to center content inside
+ * @property {align-items} center - Centers items vertically inside button
+ * @property {justify-content} center - Centers items horizontally inside button
+ */
 .button {
     padding: 0.5rem 1rem;
     font-size: 1.2rem;
@@ -24,15 +50,36 @@
     justify-content: center;
 }
 
+/* Button hover state styles
+ * @class button:hover
+ * @property {background-color} rgb(56, 142, 60) - Darker green on hover for visual feedback
+ */
 .button:hover {
     background-color: rgb(56, 142, 60);
 }
 
+/* Button active state styles
+ * @class button:active
+ * @property {transform} scale(0.95) - Slightly reduce size on click for tactile feedback
+ * @property {background-color} rgb(46, 125, 50) - Darker green on active state
+ */
 .button:active {
     transform: scale(0.95);
     background-color: rgb(46, 125, 50);
 }
 
+/* Decade display element styles
+ * @class decade-display
+ * @property {font-size} 1.5rem - Larger font size for visibility
+ * @property {font-weight} bold - Emphasizes text for importance
+ * @property {color} var(--input-text-color) - Text color based on theme variable
+ * @property {padding} 0.5rem 1rem - Space around the text content
+ * @property {background-color} var(--input-bg-color) - Background color based on theme variable
+ * @property {border-radius} 8px - Rounded corners for smoother look
+ * @property {box-shadow} 0 2px 6px rgba(0, 0, 0, 0.1) - Subtle shadow for a lifted appearance
+ * @property {min-width} 80px - Minimum width for consistency
+ * @property {text-align} center - Centers the text within the element
+ */
 .decade-display {
     font-size: 1.5rem;
     font-weight: bold;

@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Home component representing the main landing page.
+ * @module Home
+ */
+
 import React, { useState } from 'react';
 import styles from './Home.module.css';
 import Hero from '../../components/hero/Hero';

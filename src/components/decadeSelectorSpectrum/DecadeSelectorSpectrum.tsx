@@ -1,3 +1,8 @@
+/**
+ * @fileoverview A component that displays a spectrum of decade buttons for selection
+ * @module DecadeSelectorSpectrum 
+ */
+
 import React from 'react';
 import styles from './DecadeSelectorSpectrum.module.css';
 import { DecadeSelectorSpectrumProps } from '../../types/decade';

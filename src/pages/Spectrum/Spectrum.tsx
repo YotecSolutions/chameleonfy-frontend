@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Spectrum page component. Displays the spectrum page with a bubble chart visualization.
+ * @module Spectrum
+ */
+
 import React from 'react';
 import styles from './Spectrum.module.css';
 import BubbleChart from '../../components/bubbleChart/BubbleChart';

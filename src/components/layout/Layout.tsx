@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Layout component providing consistent page structure with navigation and footer
+ * @module Layout
+ */
+
 import React from 'react';
 import Navbar from '../navbar/Navbar';
 import Footer from '../footer/Footer';

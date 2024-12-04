@@ -1,3 +1,8 @@
+/**
+ * @fileoverview BubbleChart component for visualizing music tracks based on mood and genre
+ * @module BubbleChart
+ */
+
 import React, { useState, useEffect, useRef, MouseEvent, useCallback } from 'react';
 import { Bubble } from 'react-chartjs-2';
 import { Chart as ChartJS, BubbleController, LinearScale, PointElement, Tooltip, Legend, Title, ChartOptions } from 'chart.js';
@@ -8,7 +13,6 @@ import { RawTrackData, Track, ProcessedTrack } from '../../types/track';
 import { GenreButton } from '../../types/genre';
 import { Position, BubblesDataState } from '../../types/chart';
 
-// Register chart components
 ChartJS.register(BubbleController, LinearScale, PointElement, Tooltip, Legend, Title);
 
 /**
@@ -257,6 +261,7 @@ const BubbleChart: React.FC = () => {
   };
 
   useEffect(() => {
+    /* Fetch playlists when genres or decades change */
     if (selectedGenres.length > 0 || selectedDecades.length > 0) {
       fetchPlaylists();
     } else {
@@ -265,47 +270,55 @@ const BubbleChart: React.FC = () => {
   }, [selectedGenres, selectedDecades, fetchPlaylists]);
 
   useEffect(() => {
+    /* Generate genre buttons 
+    * This function generates the genre buttons in random positions around the circular chart.
+    */
     const generateGenreButtons = () => {
       const buttons: GenreButton[] = [];
       const takenPositions: Position[] = [];
-      const blueCircleRadius = 400; // Raio do círculo azul em pixels
-      const blueCircleCenter = { x: 50, y: 50 }; // Coordenadas do centro do círculo azul em porcentagem
-      const buttonRadius = 40; // Raio aproximado dos botões em pixels
-      const minDistanceFromCircle = blueCircleRadius + buttonRadius; // Distância mínima do botão ao círculo azul
+      const circularChartWrapperRadius = 400;
+      const circularChartWrapperCenter = { x: 50, y: 50 };
+      const buttonRadius = 30;
 
-      // Verifica se uma nova posição se sobrepõe a posições já existentes
+      const circleWidth = circularChartWrapperRadius * 2;
+      const diagonal = Math.sqrt(circleWidth ** 2 + circleWidth ** 2);
+
+      const minDistanceFromCircle = (diagonal / 2) + buttonRadius - 50;
+
       const doesOverlap = (newPosition: Position, takenPositions: Position[]): boolean => {
         for (const pos of takenPositions) {
-          const dx = (newPosition.x - pos.x) * 8; // Convertendo de porcentagem para pixels considerando o círculo de 800px
+          const dx = (newPosition.x - pos.x) * 8;
           const dy = (newPosition.y - pos.y) * 8;
           const distance = Math.sqrt(dx * dx + dy * dy);
           if (distance < buttonRadius * 2) {
-            return true; // Overlap detectado
+            return true;
           }
         }
         return false;
       };
 
-      // Gera posições para cada gênero
       genresWithColors.forEach((genre) => {
-        let position: Position;
+        let position: Position = { x: 0, y: 0 };
         let attempts = 0;
-        const maxAttempts = 100;
+        const maxAttempts = 300;
 
-        // Gera posições aleatórias até encontrar uma válida (fora do círculo e sem overlap)
-        do {
+        while (attempts < maxAttempts) {
           const angle = Math.random() * 2 * Math.PI; // Ângulo aleatório
-          const distance = minDistanceFromCircle + Math.random() * 200; // Gera uma distância fora do círculo azul
+          const distance = minDistanceFromCircle + Math.random() * 1000; // Gera uma distância fora do círculo azul
 
-          // Calcula as coordenadas em porcentagem
-          const x = blueCircleCenter.x + (distance * Math.cos(angle)) / 8;
-          const y = blueCircleCenter.y + (distance * Math.sin(angle)) / 8;
+          const x = circularChartWrapperCenter.x + (distance * Math.cos(angle)) / 30;
+          const y = circularChartWrapperCenter.y + (distance * Math.sin(angle)) / 10;
           position = { x, y };
+
+          if (!doesOverlap(position, takenPositions)) {
+            takenPositions.push(position);
+            break;
+          }
+
           attempts++;
-        } while (doesOverlap(position, takenPositions) && attempts < maxAttempts);
+        }
 
         if (attempts < maxAttempts) {
-          takenPositions.push(position);
           buttons.push({
             name: genre.name,
             color: genre.color,
@@ -331,7 +344,7 @@ const BubbleChart: React.FC = () => {
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
       >
-        <div className={styles['chart-wrapper']}>
+        <div className={styles['circular-chart-wrapper']}>
           <div className={`${styles['mood-label']} ${styles['label-energetic']}`}>Energetic</div>
           <div className={`${styles['mood-label']} ${styles['label-calm']}`}>Calm</div>
           <div className={`${styles['mood-label']} ${styles['label-melancholic']}`}>Melancholic</div>

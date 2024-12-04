@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Error Boundary component to catch and handle React rendering errors
+ * @component ErrorBoundary
+ */
+
 import React, { Component, ErrorInfo } from 'react';
 import styles from './ErrorBoundary.module.css';
 import { ErrorBoundaryProps, ErrorBoundaryState } from '../../types/error';

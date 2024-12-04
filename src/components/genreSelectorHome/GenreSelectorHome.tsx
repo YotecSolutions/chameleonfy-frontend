@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Home page genre selection component
+ * @module
+ */
+
 import React from 'react';
 import styles from './GenreSelectorHome.module.css';
 import { GenreSelectorHomeProps } from '../../types/genre';

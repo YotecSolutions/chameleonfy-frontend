@@ -1,3 +1,8 @@
+/**
+ * @fileoverview ThemeToggle component that allows users to switch between light and dark themes.
+ * @module ThemeToggle
+ */
+
 import React from 'react';
 import { useTheme } from '../../context/ThemeContext';
 import styles from './ThemeToggle.module.css';

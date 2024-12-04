@@ -1,3 +1,7 @@
+/**
+ * @fileoverview Theme context for managing the theme state.
+ * @module ThemeContext
+ */
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { ThemeContextType } from '../types/theme';
 

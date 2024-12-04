@@ -1,3 +1,8 @@
+/**
+ * @fileoverview LogoText component that displays the Chameleonfy logo text
+ * @module LogoText
+ */
+
 import React, { useMemo } from 'react';
 import { useTheme } from '../../context/ThemeContext';
 import LogoTextLight from '../../assets/images/chameleonfy-just-text-light-theme.svg';

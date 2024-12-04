@@ -2,7 +2,7 @@
  * @class error-container
  * @property {string} display - Centered flex layout
  */
- .error-container {
+.error-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -53,11 +53,11 @@
     .error-container {
         padding: 1rem;
     }
-    
+
     .error-message {
         font-size: 1rem;
     }
-    
+
     .reset-button {
         padding: 0.6rem 1.2rem;
     }

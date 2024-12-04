@@ -1,5 +1,3 @@
-/* BubbleChart.module.css */
-
 /* Main container for the bubble chart visualization
  * @class main-bubble-chart
  * @extends flex-container
@@ -13,7 +11,7 @@
     flex-direction: column;
     padding: 2rem;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     box-sizing: border-box;
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
@@ -27,7 +25,8 @@
 .chart-container {
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 50px);
+    /* Ajustar altura para dar mais espaço e evitar que botões fiquem escondidos */
     overflow: auto;
     cursor: grab;
 }
@@ -38,7 +37,7 @@
  * @property {string} border-radius - Circular shape
  * @property {string} background - Radial gradient background
  */
-.chart-wrapper {
+.circular-chart-wrapper {
     position: absolute;
     width: 800px;
     height: 800px;
@@ -138,6 +137,11 @@
     border: 2px solid rgb(255, 255, 255);
 }
 
+/* Decade button styling
+ * @class decade-button
+ * @property {number} width - 150px circular button
+ * @property {string} transition - Smooth hover animation
+ */
 .decade-button {
     width: 150px;
     height: 150px;

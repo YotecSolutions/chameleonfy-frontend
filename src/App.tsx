@@ -7,7 +7,6 @@ import ErrorBoundary from './components/errorBoundary/ErrorBoundary';
 
 const Home = React.lazy(() => import('./pages/Home/Home'));
 const Spectrum = React.lazy(() => import('./pages/Spectrum/Spectrum'));
-const Blablu = React.lazy(() => import('./pages/Blablu/Blablu'));
 
 const LoadingFallback = () => (
     <div className="loading-container">
@@ -37,14 +36,6 @@ const router = createBrowserRouter([
                 element: (
                     <Suspense fallback={<LoadingFallback />}>
                         <Spectrum />
-                    </Suspense>
-                ),
-            },
-            {
-                path: '/blablu',
-                element: (
-                    <Suspense fallback={<LoadingFallback />}>
-                        <Blablu />
                     </Suspense>
                 ),
             },

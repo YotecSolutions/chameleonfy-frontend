@@ -1,3 +1,8 @@
+/** 
+ * @fileoverview Navbar component for navigation and theme toggle.
+ * @module Navbar
+ */
+
 import { useState } from 'react';
 import styles from './Navbar.module.css';
 import ThemeToggle from '../themeToggle/ThemeToggle';
@@ -12,7 +17,6 @@ function Navbar() {
     const navigation = {
         home: 'Home',
         spectrum: 'Spectrum',
-        blablu: 'Blablu',
     };
 
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -45,9 +49,6 @@ function Navbar() {
                     </li>
                     <li className={styles['navbar-links-list']}>
                         <a href="/spectrum" className={styles['navbar-link']}>{navigation.spectrum}</a>
-                    </li>
-                    <li className={styles['navbar-links-list']}>
-                        <a href="/blablu" className={styles['navbar-link']}>{navigation.blablu}</a>
                     </li>
                 </ul>
             </div>

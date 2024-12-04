@@ -1,3 +1,8 @@
+/**
+ * @fileoverview The Hero component displays a typewriter effect for rotating phrases
+ * @module Hero
+ */
+
 import React, { useEffect, useMemo, useState } from 'react';
 import styles from './Hero.module.css';
 

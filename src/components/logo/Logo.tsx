@@ -1,3 +1,7 @@
+/** 
+ * @fileoverview Logo component that adapts to current theme
+ * @module Logo
+ */
 import React, { useMemo } from 'react';
 import { useTheme } from '../../context/ThemeContext';
 import LogoLight from '../../assets/images/chameleonfy-text-light-theme.svg';
